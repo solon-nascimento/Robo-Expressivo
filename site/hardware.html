@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kapibatchi • Hardware</title>
+<style>
+:root{color-scheme:dark;--bg:#080c12;--card:#111925;--line:#243246;--accent:#62e3c2;--muted:#9fb1c7}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:#f5f7fa}
+main{max-width:1100px;margin:auto;padding:28px 18px 60px}h1{font-size:clamp(32px,6vw,58px);margin:0;color:var(--accent)}
+.lead{color:var(--muted);font-size:18px;max-width:800px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:25px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;cursor:pointer;transition:.15s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}.n{font-size:13px;color:var(--accent);font-weight:800}.card h2{margin:7px 0 8px}
+.card p{color:var(--muted)}button,.back{background:var(--accent);color:#07110e;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
+.viewer{display:none;margin-top:25px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px}
+.viewer img{width:100%;height:auto;border-radius:14px;background:#0b111a}.viewer:target{display:block}
+table{width:100%;border-collapse:collapse;margin-top:26px;background:var(--card);border-radius:18px;overflow:hidden}
+th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line)}th{color:var(--accent)}
+.note{margin-top:22px;padding:16px;border:1px solid #695e2d;background:#211e12;border-radius:14px;color:#e9dfac}
+a{color:inherit;text-decoration:none}
+</style></head><body><main>
+<div class="n">PROJETO 21 • ESP32-C3</div><h1>Kapibatchi</h1>
+<p class="lead">Guia visual de montagem. Escolha abaixo a configuração do seu Kapibatchi para visualizar as ligações.</p>
+
+<div class="grid">
+<a class="card" href="#c1"><div class="n">OPÇÃO 1</div><h2>Somente Display</h2><p>OLED I²C 128×64.</p><button>Ver ligações</button></a>
+<a class="card" href="#c2"><div class="n">OPÇÃO 2</div><h2>Display + Touch</h2><p>OLED e sensor capacitivo TTP223.</p><button>Ver ligações</button></a>
+<a class="card" href="#c3"><div class="n">OPÇÃO 3</div><h2>Display + Touch + Vibração</h2><p>Inclui saída para o estágio de acionamento do motor.</p><button>Ver ligações</button></a>
+<a class="card" href="#c4"><div class="n">OPÇÃO 4</div><h2>Display + Touch + Bateria</h2><p>Inclui bateria Li-ion 1S, TP4056 e leitura da bateria.</p><button>Ver ligações</button></a>
+<a class="card" href="#c5"><div class="n">OPÇÃO 5</div><h2>Configuração Completa</h2><p>OLED, touch, buzzer, vibração, bateria e carregador.</p><button>Ver ligações</button></a>
+</div>
+
+<section id="c1" class="viewer"><h2>Somente Display OLED</h2><img src="assets/01-display.svg"><p><a class="back" href="#">Fechar</a></p></section>
+<section id="c2" class="viewer"><h2>Display + Touch</h2><img src="assets/02-display-touch.svg"><p><a class="back" href="#">Fechar</a></p></section>
+<section id="c3" class="viewer"><h2>Display + Touch + Vibração</h2><img src="assets/03-display-touch-vibracao.svg"><p><a class="back" href="#">Fechar</a></p></section>
+<section id="c4" class="viewer"><h2>Display + Touch + Bateria/Carregador</h2><img src="assets/04-display-touch-bateria.svg"><p><a class="back" href="#">Fechar</a></p></section>
+<section id="c5" class="viewer"><h2>Configuração Completa</h2><img src="assets/05-completo.svg"><p><a class="back" href="#">Fechar</a></p></section>
+
+<h2>Pinagem oficial desta versão</h2>
+<table><tr><th>Função</th><th>ESP32-C3</th></tr>
+<tr><td>OLED SDA</td><td>GPIO 8</td></tr><tr><td>OLED SCL</td><td>GPIO 9</td></tr>
+<tr><td>Touch TTP223</td><td>GPIO 7</td></tr><tr><td>Buzzer</td><td>GPIO 5</td></tr>
+<tr><td>Vibração</td><td>GPIO 10</td></tr><tr><td>Bateria ADC</td><td>GPIO 3</td></tr></table>
+<div class="note"><strong>Importante:</strong> o GPIO 10 é o sinal de controle da vibração. O motor deve ser acionado por transistor/driver apropriado. A leitura da bateria no GPIO 3 deve usar o divisor resistivo previsto no projeto.</div>
+</main></body></html>

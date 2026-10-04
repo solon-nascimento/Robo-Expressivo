@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+    <rect width="1100" height="520" rx="28" fill="#0b111a"/>
+    <style>.h{font:700 34px system-ui;fill:#62e3c2}.s{font:18px system-ui;fill:#aebed0}.t{font:600 19px system-ui;fill:#f3f7fb}</style>
+    <text x="50" y="58" class="h">Display + Touch + Bateria/Carregador</text>
+    <text x="50" y="92" class="s">Kapibatchi • ESP32-C3 Super Mini • mapa de conexões</text>
+    <rect x="105" y="125" width="275" height="340" rx="22" fill="#172332" stroke="#35475b" stroke-width="3"/>
+    <text x="242" y="185" text-anchor="middle" class="h" font-size="25">ESP32-C3</text>
+    <text x="242" y="218" text-anchor="middle" class="s">Super Mini</text>
+    <rect x="650" y="125" width="340" height="340" rx="22" fill="#121d29" stroke="#35475b" stroke-width="3"/>
+    <text x="820" y="165" text-anchor="middle" class="s">MÓDULOS / CONEXÕES</text>
+    
+        <line x1="380" y1="155" x2="650" y2="155" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="155" r="6" fill="#54e0bd"/><circle cx="650" cy="155" r="6" fill="#54e0bd"/>
+        <text x="365" y="161" text-anchor="end" class="t">GPIO 8</text>
+        <text x="665" y="161" class="t">OLED SDA</text>
+        <line x1="380" y1="197" x2="650" y2="197" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="197" r="6" fill="#54e0bd"/><circle cx="650" cy="197" r="6" fill="#54e0bd"/>
+        <text x="365" y="203" text-anchor="end" class="t">GPIO 9</text>
+        <text x="665" y="203" class="t">OLED SCL</text>
+        <line x1="380" y1="239" x2="650" y2="239" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="239" r="6" fill="#54e0bd"/><circle cx="650" cy="239" r="6" fill="#54e0bd"/>
+        <text x="365" y="245" text-anchor="end" class="t">GPIO 7</text>
+        <text x="665" y="245" class="t">TTP223 OUT</text>
+        <line x1="380" y1="281" x2="650" y2="281" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="281" r="6" fill="#54e0bd"/><circle cx="650" cy="281" r="6" fill="#54e0bd"/>
+        <text x="365" y="287" text-anchor="end" class="t">GPIO 3 via divisor</text>
+        <text x="665" y="287" class="t">Leitura bateria</text>
+        <line x1="380" y1="323" x2="650" y2="323" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="323" r="6" fill="#54e0bd"/><circle cx="650" cy="323" r="6" fill="#54e0bd"/>
+        <text x="365" y="329" text-anchor="end" class="t">Bateria Li-ion 1S</text>
+        <text x="665" y="329" class="t">TP4056</text>
+        <line x1="380" y1="365" x2="650" y2="365" stroke="#54e0bd" stroke-width="4"/>
+        <circle cx="380" cy="365" r="6" fill="#54e0bd"/><circle cx="650" cy="365" r="6" fill="#54e0bd"/>
+        <text x="365" y="371" text-anchor="end" class="t">GND</text>
+        <text x="665" y="371" class="t">GND comum</text>
+    <text x="50" y="495" class="s">Atenção: motor de vibração deve usar estágio/driver adequado; não alimente o motor diretamente pelo GPIO.</text>
+    </svg>
