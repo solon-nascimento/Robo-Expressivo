@@ -1,0 +1,46 @@
+name: Build firmware and deploy installer
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install platformio esptool
+      - name: Build ESP32-C3 firmware
+        working-directory: firmware-src
+        run: pio run
+      - name: Merge firmware
+        working-directory: firmware-src
+        run: |
+          python -m esptool --chip esp32c3 merge_bin -o ../site/firmware/robo-expressivo-esp32c3.bin --flash_mode dio --flash_freq 80m --flash_size 4MB \
+            0x0000 .pio/build/esp32-c3-supermini/bootloader.bin \
+            0x8000 .pio/build/esp32-c3-supermini/partitions.bin \
+            0xe000 ~/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin \
+            0x10000 .pio/build/esp32-c3-supermini/firmware.bin
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
