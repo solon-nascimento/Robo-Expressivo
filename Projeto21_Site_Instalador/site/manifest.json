@@ -1,0 +1,14 @@
+{
+  "name": "Robo Expressivo - Projeto 21",
+  "version": "0.2.0-test",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "parts": [
+        { "path": "firmware/robo-expressivo-esp32c3.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
