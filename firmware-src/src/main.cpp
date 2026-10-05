@@ -33,11 +33,11 @@ const char* faceNames[]={"Neutral","Serious","Sleepy","Crying","Sad","Cute","Kis
 const bool faceAnimated[]={true,true,false,false,false,false,false,true,true,true,true,false};
 const uint8_t FACE_COUNT=12;
 bool faceEnabled[12]={true,true,true,true,true,true,true,true,true,true,true,true};
-uint8_t infoOrder[I_COUNT]={0,1,2,3,4,5,6};
 bool invertOLED=false,displayEnabled=true,clock24=true,soundEnabled=true,vibrationEnabled=true;
 
 // telas informativas habilitaveis
 enum InfoScreen{I_CLOCK,I_CALENDAR,I_WEATHER,I_AIR,I_SUN,I_CURRENCY,I_MOON,I_COUNT};
+uint8_t infoOrder[I_COUNT]={0,1,2,3,4,5,6};
 bool infoEnabled[I_COUNT]={true,true,true,true,true,true,true};
 bool showSeconds=true, showWeekday=true, showFeeling=true, tempRounded=false;
 bool showHumidity=true, showWind=true, showAQI=true, showPM25=true, showPM10=true, showOzone=true;
@@ -283,7 +283,7 @@ String checked(bool v){return v?" checked":"";}
 String head(){return R"HTML(<!doctype html><html lang='pt-BR'><meta name='viewport' content='width=device-width,initial-scale=1'>
 <style>body{font-family:system-ui;background:#111;color:#eee;max-width:900px;margin:auto;padding:24px}h1,h2{font-weight:800}.card{background:#242424;border:1px solid #444;border-radius:10px;padding:18px;margin:14px 0}.row{padding:14px;border-bottom:1px solid #444}input,button{padding:10px;margin:5px;border-radius:8px;border:1px solid #555;background:#333;color:#fff}button{background:#eee;color:#111;font-weight:800}.small{color:#aaa}label{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}</style>)HTML";}
 String page(){
- String s=head()+"<h1>Kapibatchi <span class='small'>v0.6.0</span></h1>";
+ String s=head()+"<h1>Kapibatchi <span class='small'>v0.6.1</span></h1>";
  s+="<div class='card'><h2>Biblioteca de rostos</h2><p class='small'>Toque simples alterna entre os rostos. Os marcados ANIMATED possuem movimento no OLED.</p><div class='grid'>";
  for(int i=0;i<FACE_COUNT;i++){
    s+="<div class='row'><b>"+String(faceNames[i])+"</b><br><span class='small'>"+String(faceAnimated[i]?"ANIMATED":"STATIC")+" • TAP</span></div>";
